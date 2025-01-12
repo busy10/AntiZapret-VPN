@@ -70,7 +70,7 @@ class ProxyResolver(BaseResolver):
                 os._exit(1)
             print('Mapping {} to {}'.format(fake_addr, real_addr))
             self.ipmap[real_addr]=fake_addr
-            set_mapping = f"iptables -w -t nat -A ANTIZAPRET-MAPPING -d '{fake_addr}' -j DNAT --to '{real_addr}'"
+            set_mapping = f"iptables -w -t nat -A ANTIZAPRET-MAPPING2 -m mark --mark 1 -d '{fake_addr}' -j DNAT --to '{real_addr}'"
             subprocess.call(set_mapping, shell=True, encoding='utf-8')
             return fake_addr
         return True
