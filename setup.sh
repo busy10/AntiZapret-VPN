@@ -273,7 +273,8 @@ rm -rf /tmp/antizapret
 #
 # Выставляем разрешения на запуск скриптов
 find /root -name "*.sh" -execdir chmod +x {} +
-chmod +x /root/antizapret/proxy.py
+chmod +x /root/antizapret/proxy1.py
+chmod +x /root/antizapret/proxy2.py
 
 #
 # Используем альтернативные диапазоны ip-адресов
