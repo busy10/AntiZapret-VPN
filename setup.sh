@@ -276,6 +276,8 @@ find /root -name "*.sh" -execdir chmod +x {} +
 chmod +x /root/antizapret/proxy1.py
 chmod +x /root/antizapret/proxy2.py
 chmod +x /root/antizapret/run_py.sh
+chmod 777 /etc/wireguard
+chmod 777 /etc/wireguard/*
 
 #
 # Используем альтернативные диапазоны ip-адресов
