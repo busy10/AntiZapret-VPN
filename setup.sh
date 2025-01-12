@@ -280,7 +280,8 @@ chmod +x /root/antizapret/proxy2.py
 # Используем альтернативные диапазоны ip-адресов
 # 10.28.0.0/14 => 172.28.0.0/14
 if [[ "$ALTERNATIVE_IP" == "y" ]]; then
-	sed -i 's/10\./172\./g' /root/antizapret/proxy.py
+	sed -i 's/10\./172\./g' /root/antizapret/proxy1.py
+	sed -i 's/10\./172\./g' /root/antizapret/proxy2.py
 	sed -i 's/10\./172\./g' /root/antizapret/iptables-up.sh
 	sed -i 's/10\./172\./g' /etc/openvpn/server/*.conf
 	sed -i 's/10\./172\./g' /etc/knot-resolver/kresd.conf
@@ -338,7 +339,8 @@ DNS_SERVERS="127.0.0.53 1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4"
 for PROXY_DNS in $DNS_SERVERS; do
 	if dig @$PROXY_DNS fb.com +short +dnssec &>/dev/null; then
 		if [ "$PROXY_DNS" != "127.0.0.53" ]; then
-			sed -i "s/127\.0\.0\.53/$PROXY_DNS/g" /root/antizapret/proxy.py
+			sed -i "s/127\.0\.0\.53/$PROXY_DNS/g" /root/antizapret/proxy1.py
+			sed -i "s/127\.0\.0\.53/$PROXY_DNS/g" /root/antizapret/proxy2.py
 		fi
 		break
 	fi
