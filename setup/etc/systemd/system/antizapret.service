@@ -9,7 +9,8 @@ LimitNOFILE=65535
 WorkingDirectory=/root/antizapret
 ExecStartPre=/root/antizapret/iptables-up.sh
 ExecStartPre=/bin/bash -c 'echo "cache.clear()" | socat - /run/knot-resolver/control/1'
-ExecStart=/root/antizapret/proxy.py
+ExecStartPre=/root/antizapret/proxy1.py
+ExecStart=/root/antizapret/proxy2.py
 ExecStopPost=/root/antizapret/iptables-down.sh
 Restart=on-failure
 
