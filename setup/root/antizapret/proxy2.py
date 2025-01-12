@@ -38,7 +38,7 @@ class ProxyResolver(BaseResolver):
         self.ipmap = {}
 
         # Load existing mapping
-        get_mapping = "iptables -w -t nat -nL ANTIZAPRET-MAPPING | awk '{if (NR<3) {next}; sub(/to:/, \"\", $6); print $5, $6}'"
+        get_mapping = "iptables -w -t nat -nL ANTIZAPRET-MAPPING2 | awk '{if (NR<3) {next}; sub(/to:/, \"\", $6); print $5, $6}'"
         output = subprocess.check_output(get_mapping, shell=True, encoding='utf-8')
         for mapped in output.split("\n"):
             if mapped:

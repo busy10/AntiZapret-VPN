@@ -79,7 +79,8 @@ iptables -w -t nat -A PREROUTING -s 10.29.0.0/16 ! -d 10.29.0.1/32 -p udp --dpor
 iptables -w -t nat -A PREROUTING -s 10.29.0.0/16 ! -d 10.30.0.0/15 -j CONNMARK --set-xmark 0x1/0xffffffff
 # ANTIZAPRET-MAPPING
 iptables -w -t nat -N ANTIZAPRET-MAPPING
-iptables -w -t nat -A PREROUTING -s 10.29.0.0/16 -d 10.28.0.0/15 -j ANTIZAPRET-MAPPING
+iptables -w -t nat -N ANTIZAPRET-MAPPING2
 iptables -w -t nat -A PREROUTING -s 10.29.0.0/16 -d 10.30.0.0/15 -j ANTIZAPRET-MAPPING
+iptables -w -t nat -A PREROUTING -s 10.29.0.0/16 -d 10.28.0.0/15 -j ANTIZAPRET-MAPPING2
 # MASQUERADE
 iptables -w -t nat -A POSTROUTING -s 10.28.0.0/15 -j MASQUERADE
