@@ -200,7 +200,7 @@ if [[ -d "/usr/local/src/openvpn" ]]; then
 fi
 
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install --reinstall -y curl gpg procps
+DEBIAN_FRONTEND=noninteractive apt-get install --reinstall -y curl gpg procps resolvconf
 
 #
 # Отключим IPv6 на время установки
