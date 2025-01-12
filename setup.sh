@@ -144,7 +144,7 @@ echo "    0) None       - Do not install the anti-censorship patch, or remove it
 echo "    1) Strong     - Recommended by default"
 echo "    2) Error-free - Use it if the Strong patch causes a connection error, recommended for Mikrotik routers"
 until [[ $OPENVPN_PATCH =~ ^[0-2]$ ]]; do
-	read -rp "Version choice [0-2]: " -e -i 1 OPENVPN_PATCH
+	read -rp "Version choice [0-2]: " -e -i 2 OPENVPN_PATCH
 done
 echo ""
 echo "OpenVPN DCO lowers CPU load, saves battery on mobile devices, boosts data speeds, and only supports AES-128-GCM, AES-256-GCM and CHACHA20-POLY1305 encryption protocols"
@@ -183,12 +183,12 @@ until [[ $OPENVPN_DUPLICATE =~ (y|n) ]]; do
 done
 echo ""
 until [[ $INSTALL_SSHGUARD =~ (y|n) ]]; do
-	read -rp "Install SSHGuard to protect this server from brute-force attacks on SSH? [y/n]: " -e -i y INSTALL_SSHGUARD
+	read -rp "Install SSHGuard to protect this server from brute-force attacks on SSH? [y/n]: " -e -i n INSTALL_SSHGUARD
 done
 echo ""
 echo "Warning! Network attack and scan protection may block the work of some third-party applications!"
 until [[ $PROTECT_SERVER =~ (y|n) ]]; do
-	read -rp "Enable network attack and scan protection for this server? [y/n]: " -e -i y PROTECT_SERVER
+	read -rp "Enable network attack and scan protection for this server? [y/n]: " -e -i n PROTECT_SERVER
 done
 echo ""
 
