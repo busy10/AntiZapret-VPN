@@ -275,6 +275,7 @@ rm -rf /tmp/antizapret
 find /root -name "*.sh" -execdir chmod +x {} +
 chmod +x /root/antizapret/proxy1.py
 chmod +x /root/antizapret/proxy2.py
+chmod +x /root/antizapret/run_py.sh
 
 #
 # Используем альтернативные диапазоны ip-адресов
