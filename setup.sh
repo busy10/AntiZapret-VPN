@@ -422,6 +422,14 @@ if [[ -z "$(swapon --show)" ]]; then
 	echo "$SWAPFILE none swap sw 0 0" >> /etc/fstab
 fi
 
+# Add a custom routing table (if not already added)
+ROUTING_TABLE="100"             # Custom routing table number
+TABLE_NAME="ANTIZAPRET-ROUTE" # Custom routing table name
+echo "Adding custom routing table ($TABLE_NAME)..."
+if ! grep -q "$ROUTING_TABLE $TABLE_NAME" /etc/iproute2/rt_tables; then
+  echo "$ROUTING_TABLE $TABLE_NAME" >> /etc/iproute2/rt_tables
+fi
+
 echo ""
 echo -e "\e[1;32mAntiZapret VPN + traditional VPN successful installation!\e[0m"
 echo "Rebooting..."
